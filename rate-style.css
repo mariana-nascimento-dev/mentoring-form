@@ -1,0 +1,313 @@
+* {
+  padding: 0;
+  margin: 0;
+
+  box-sizing: border-box;
+
+  -webkit-foont-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  --main-color: rgb(213, 120, 250);
+  --body-color: #f1f1f1;
+  --fields-clor: #FFFFFF;
+  --label-color: rgb(161, 85, 190);
+  --words-color: #4E4958;
+}
+
+body {
+  background-color: var(--body-color);
+}
+
+body::before {
+  content: '';
+
+  background-color: var(--main-color);
+
+  width: 100%;
+  height: 465px;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -2;
+}
+
+.page {
+  width: 750px;
+
+  margin:  auto;
+}
+
+header {
+  width: 750px;
+
+  margin-top: 55px;
+  margin-bottom: 32px;
+
+  color: var(--fields-clor);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header img {
+  margin-top: 20px;
+}
+
+header h1 {
+  font-family: 'Staatliches';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 45px;
+
+  
+}
+
+header p {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+form {
+  background-color: var(--fields-clor);
+
+  margin-top: 58px;
+  margin-bottom: 100px;
+
+  border-radius: 20px 20px 8px 8px;
+
+  min-height: 300px;
+
+
+}
+
+fieldset {
+  border: none;
+  
+}
+
+label {
+  color: var(--label-color);
+}
+
+span {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 20px;
+
+  color: #C1BCCC;
+
+  margin-left: 10px;
+}
+
+span:hover {
+  color: #75727a;
+}
+
+input, select, textarea {
+  background-color: #FAFAFC;
+
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #75727a;
+
+  border: 1px solid #E6E6F0;
+  border-radius: 8px;
+
+  height: 56px;
+
+  padding: 0 24px;
+
+}
+
+input:invalid {
+  border: 1px solid #FF1010;
+}
+
+textarea {
+  padding: 0;
+
+  height: 168px;
+}
+
+.legend-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  height: 163px;
+
+  background: #F67669;
+
+  border-radius: 20px 20px 0 0;
+
+  padding: 64px;
+
+  width: 750px;
+}
+
+#one {
+  font-family: 'Staatliches', cursive;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 34px;
+
+  border: none;
+
+  color: var(--fields-clor);
+
+}
+
+
+legend {
+  font-family: 'Staatliches';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 34px;
+
+  color: var(--main-color);
+
+  border-bottom: 1px solid #E6E6F0;
+  width: 82%;
+
+  padding: 31px 64px 16px;
+
+  text-align: center;
+}
+
+.name-wrapper {
+  display: flex;
+
+  padding-top: 31px;
+
+  gap: 22px;
+}
+
+.name-wrapper > div:nth-child(1),
+.name-wrapper > div:nth-child(2) {
+  width: 100%;
+}
+
+.name-wrapper div:nth-child(1) {
+  padding-right: 0;
+}
+
+.name-wrapper div:nth-child(2) {
+  padding-left: 0;
+}
+.input-wrapper, .checkbox-wrapper {
+  display: flex;
+  flex-direction: column;
+
+  padding: 0 64px;
+
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+
+  margin-top: 16px;
+
+}
+
+.checkbox-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  position: relative;
+}
+
+.checkbox-wrapper input {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  opacity: 0;
+}
+
+.checkbox-wrapper label {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.checkbox-wrapper label::before{
+  content: '';
+
+  display: block;
+
+  width: 24px;
+  height: 24px;
+  border: 1px solid #E6E6F0;
+  border-radius: 8px;
+}
+
+/*esse próximo seletor significa que quando o input do ckeckbox estiver checked o label before assumirá a estilização a seguir*/
+.checkbox-wrapper input:checked + label::before {
+  background-image: url("data:image/svg+xml,%3Csvg width='18' height='14' viewBox='0 0 18 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 11.17L1.83 7L0.410004 8.41L6 14L18 2L16.59 0.589996L6 11.17Z' fill='%2342D3FF'/%3E%3C/svg%3E%0A");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.checkbox-wrapper input:focus + label::before {
+  outline: 2.5px solid black;
+}
+
+.date-wrapper {
+  display: flex;
+  gap: 10px;
+
+}
+
+.date-wrapper div:nth-child(1) {
+  padding-right: 22px;
+  width: 100%;
+}
+
+.date-wrapper div:nth-child(2) {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.date-wrapper div:nth-child(3) {
+ padding-left: 0;
+}
+.button-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#button {
+  background-color: #F67669;
+
+  color: var(--fields-clor);
+
+  text-align: center;
+  
+  width: 622px;
+  height: 51px;
+
+  margin: 64px;
+
+  font-family: 'Staatliches';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 26px;
+}
